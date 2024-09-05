@@ -21,27 +21,22 @@ int main()
 	    contaAbaixo = 0, //conta pessoas com salário até 2000
 	    contaExec = 1; //contador para estética
 
-	float salario = 1, //Inicializa salario com 1 pra rodar ao menos 1 vez
+	float salario, 
 	      contaSalario = 0, //conta salário até 2000 para calcular a média
 	      mediaSalario, //variável pra guardar a média do salário
 	      maiorSalario = 0; //variável que vai capturar o maior salário
+    
+    printf("Vamos calcular Salários! \n"
+			        "Digite 0 para sair... \n");
+
+
+    //pede e escaneia o salário
+		printf("\nDigite o salário da pessoa %d: R$",contadorPessoas);
+		scanf("%f",&salario);
 
 	//estrutura de repetição para looping quase infinito
 	while(salario != flag)
 	{
-		//se for a primeira execução apresenta o programa
-		if(contaExec == 1)
-		{
-			printf("Vamos calcular Salários! \n"
-			        "Digite 0 para sair... \n");
-
-			contaExec++;
-		}
-
-		//pede e escaneia o salário
-		printf("\nDigite o salário da pessoa %d: R$",contadorPessoas);
-		scanf("%f",&salario);
-		
 		//Se o salário for maior que 0 executa
 		if(salario > 0)
 		{
@@ -67,12 +62,21 @@ int main()
 		}
 
 		//se salário for igual a 0 não faz nada
+
+        //pede e escaneia o salário
+		printf("\nDigite o salário da pessoa %d: R$",contadorPessoas);
+		scanf("%f",&salario);
 	}
 
 	//processa dados e imprime resultado na tela
-	mediaSalario = contaSalario / (float) contaAbaixo;
-
-	printf("\nA media dos salarios ate 2000 reais eh: R$%.2f\n",mediaSalario);
+    if(contaAbaixo == 0)
+    {
+        printf("\nNao houve salario no intervalo\n");
+    }
+    else{
+        mediaSalario = contaSalario / (float) contaAbaixo;
+	    printf("\nA media dos salarios ate 2000 reais eh: R$%.2f\n",mediaSalario);
+    }
 	
 	if(maiorSalario == 0)
 	{
